@@ -13,44 +13,44 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="menu" class="form-label">Tên Danh Mục</label>
-                    <input type="text" name="name" class="form-control" placeholder="Nhập Danh Mục">
+                    <input type="text" name="name" value="{{ $menu->name }}" class="form-control" placeholder="Nhập Danh Mục">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Danh Mục</label>
                     <select name="parent_id" class="form-control">
-                        <option value="0">Các Danh Mục </option>
-                        @foreach ($menus as $menu)
-                            <option value="{{ $menu->id }}"> {{$menu->name}} </option>
+                        <option value="0" {{ $menu->parent_id == 0 ? 'selected' : '' }}>Các Danh Mục </option>
+                        @foreach ($menus as $menuParent)
+                            <option value="{{ $menuParent->id }}" {{ $menu->parent_id == $menuParent->id ? 'selected' : '' }}> {{$menuParent->name}} </option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Mô Tả</label>
-                    <textarea name="description" class="form-control"></textarea>
+                    <textarea name="description" class="form-control">{{ $menu->description }}</textarea>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Mô Tả Chi Tiết</label>
-                    <textarea name="content" id="content" class="form-control"></textarea>
+                    <textarea name="content" id="content" class="form-control"> {{$menu->content }}</textarea>
                 </div>
 
                 <fieldset class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">Kích Hoạt</legend>
                     <div class="col-sm-10 d-flex">
                         <div class="form-check pe-4">
-                            <input class="form-check-input" type="radio" name="active" id="active" value="1" checked="">
+                            <input class="form-check-input" type="radio" name="active" id="active" value="1" {{$menu->active = 1 ? 'checked=""' : ''}}>
                             <label class="form-check-label" for="active">Có</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="active" id="no_active" value="0">
+                            <input class="form-check-input" type="radio" name="active" id="no_active" value="0" {{$menu->active = 0 ? 'checked=""' : ''}}>
                             <label class="form-check-label" for="no_active">Không</label>
                         </div>
                     </div>
                 </fieldset>
             </div>
-            <div class="card-footer"> <button type="submit" class="btn btn-primary">Tạo Danh Mục</button> </div>
+            <div class="card-footer"> <button type="submit" class="btn btn-primary">Cập Nhập Danh Mục</button> </div>
             @csrf
         </form>
     </div>
