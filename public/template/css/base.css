@@ -1,0 +1,11 @@
+:root {
+    --white-color: #fff;
+    --text-color: #a0a0a0;
+    --black-color: #000;
+    --btn-color: #333;
+}
+
+
+.text-color {
+    color: var(--text-color);
+}
