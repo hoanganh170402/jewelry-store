@@ -1,5 +1,5 @@
 <header>
-{{--    @php $menusHtml = \App\Helpers\Helper::menus($menus); @endphp--}}
+    @php $menusHtml = \App\Helpers\Helper::menus($menus); @endphp
     <!-- Header desktop -->
     <div class="container-menu-desktop">
         <!-- Topbar -->
@@ -42,7 +42,7 @@
                     <ul class="main-menu">
                         <li class="active-menu"><a href="/">Home</a></li>
 
-{{--                        {!! $menusHtml !!}--}}
+                        {!! $menusHtml !!}
 
                         <li>
                             <a href="about.html">About</a>
@@ -130,7 +130,7 @@
         <ul class="main-menu-m">
             <li class="active-menu"><a href="/">Home</a></li>
 
-{{--            {!! $menusHtml !!}--}}
+            {!! $menusHtml !!}
 
             <li>
                 <a href="about.html">About</a>
