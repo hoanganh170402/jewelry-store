@@ -104,7 +104,7 @@
         </div>
 
         <div id="loadProduct">
-{{--            @include('products.list')--}}
+            @include('products.list')
         </div>
 
         <!-- Load more -->
