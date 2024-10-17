@@ -3,6 +3,8 @@
     --text-color: #a0a0a0;
     --black-color: #000;
     --btn-color: #333;
+    --hover-color:rgb(160,160,160);
+    --hover-color-rgba:rgba(160,160,160,0.8);
 }
 
 
