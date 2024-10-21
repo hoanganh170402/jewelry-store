@@ -5,9 +5,23 @@
     --btn-color: #333;
     --hover-color:rgb(160,160,160);
     --hover-color-rgba:rgba(160,160,160,0.8);
+    --white-text-color: #fff;
 }
 
 
 .text-color {
     color: var(--text-color);
+}
+.text-center {
+    text-align: center;
+}
+
+.line-clamp{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.max-width{
+    max-width: 165px;
 }

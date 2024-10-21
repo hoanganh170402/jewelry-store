@@ -2087,7 +2087,7 @@ input.num-product::-webkit-inner-spin-button {
 ==================================================================*/
 .cl0 {color: #fff;}
 .cl1 {color: #717fe0;}
-.cl2 {color: var(--white-color);}
+.cl2 {color: var(--text-color);}
 .cl3 {color: #666;}
 .cl4 {color: #999;}
 .cl5 {color: #222;}
@@ -2611,7 +2611,7 @@ input.num-product::-webkit-inner-spin-button {
 .bg5 {background-color: rgba(0,0,0,0.5);}
 .bg6 {background-color: #f2f2f2;}
 .bg7 {background-color: #333;}
-.bg8 {background-color: #747474;}
+.bg8 {background-color: var(--btn-color)}
 .bg9 {background-color: rgba(255,255,255,0.9);}
 
 /*---------------------------------------------*/
