@@ -6,8 +6,6 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="/template/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/fonts/linearicons-v1.0.0/icon-font.min.css">
@@ -30,6 +28,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/css/util.css">
 <link rel="stylesheet" type="text/css" href="/template/css/main.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="/template/css/style.css">
 <link rel="stylesheet" type="text/css" href="/template/css/base.css">
