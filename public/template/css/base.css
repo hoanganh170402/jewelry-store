@@ -25,3 +25,6 @@
 .max-width{
     max-width: 165px;
 }
+.flex-1 {
+    flex: 1;
+}
