@@ -63,6 +63,22 @@
                     </ul>
                 </li>
             </ul> <!--end:: Slider-->
+
+            <!-- Cart -->
+            <ul class="nav sidebar-menu flex-column text-center" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                <li class="nav-item"> <a href="#" class="nav-link align-items-center"> <i class="fa-solid fa-cart-shopping"></i>
+                        <p>
+                            Giỏ Hàng
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a href="/admin/customers" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <p>Danh Sách Giỏ Hàng</p>
+                            </a> </li>
+                    </ul>
+                </li>
+            </ul> <!--end:: Cart-->
         </nav>
     </div> <!--end::Sidebar Wrapper-->
 </aside> <!--end::Sidebar-->

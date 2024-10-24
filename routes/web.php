@@ -50,6 +50,11 @@ Route::middleware(['auth'])->group(function(){
 
         #Upload
         Route::post('upload/services',[UploadController::class, 'store']);
+
+        #cart
+        Route::get('customers', [\App\Http\Controllers\Admin\CartController::class, 'index']);
+        Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
+        Route::DELETE('customers/destroy',[\App\Http\Controllers\Admin\CartController::class,'destroy']);
     });
 });
 
