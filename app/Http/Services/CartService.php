@@ -11,7 +11,8 @@ use App\Models\Product;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
 class CartService
 {
     public function create($request)
@@ -96,8 +97,8 @@ class CartService
             Session::flash('success', 'Đặt Hàng Thành Công');
 
             #Queue
-            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
-
+//            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
+            Mail::to($request->user())->send(new OrderShipped());
             Session::forget('carts');
         } catch (\Exception $err) {
             DB::rollBack();
