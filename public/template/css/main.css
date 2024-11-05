@@ -2309,7 +2309,9 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 .ltext-102 {
-  font-family: Poppins-Bold;
+    font-family: "Be Vietnam Pro", serif;
+    font-weight: 700;
+    font-style: normal;
   font-size: 28px;
   line-height: 1.1;
 }

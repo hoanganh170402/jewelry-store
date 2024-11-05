@@ -37,24 +37,15 @@
             <nav class="limiter-menu-desktop container">
 
                 <!-- Logo desktop -->
-                <a href="#" class="logo">
+                <a href="/" class="logo">
                     <img src="/template/images/icons/logo-01.png" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
-                        <li class="active-menu"><a href="/">Home</a></li>
-
+                        <li class="active-menu"><a href="/">HOME</a></li>
                         {!! $menusHtml !!}
-
-                        <li>
-                            <a href="about.html">About</a>
-                        </li>
-
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
                     </ul>
                 </div>
 

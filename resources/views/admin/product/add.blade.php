@@ -18,7 +18,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Danh Mục</label>
-                    <select name="menu_id" class="form-control">
+                    <select name="menu_id" class="form-control" >
                         <option value="0">Các Danh Mục </option>
                         @foreach ($menus as $menu)
                             <option value="{{ $menu->id }}"> {{$menu->name}} </option>
