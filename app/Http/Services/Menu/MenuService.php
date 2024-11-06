@@ -17,7 +17,7 @@ class MenuService
 
     public function show()
     {
-        return Menu::select('name', 'id')
+        return Menu::select('name', 'id', 'thumb')
             ->where('parent_id', 0)
             ->orderbyDesc('id')
             ->get();
@@ -37,6 +37,7 @@ class MenuService
                 'description'=>(string) $request->input('description'),
                 'content'=>(string) $request->input('content'),
                 'active'=>(string) $request->input('active'),
+                'thumb'=>(string) $request->input('thumb'),
             ]);
             Session::flash('success', 'Tạo Danh Mục Thành Công');
         } catch (\Exception $err) {
@@ -58,6 +59,7 @@ class MenuService
         $menu->description = (string) $request->input('description');
         $menu->content = (string) $request->input('content');
         $menu->active = (string) $request->input('active');
+        $menu->thumb = (string) $request->input('thumb');
         $menu->save();
 
         Session::flash('success','Cập Nhập Thành Công Danh Mục');

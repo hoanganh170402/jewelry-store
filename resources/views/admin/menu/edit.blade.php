@@ -36,6 +36,17 @@
                     <textarea name="content" id="content" class="form-control"> {{$menu->content }}</textarea>
                 </div>
 
+                <div class="form-group" style="padding-bottom: 25px;">
+                    <label for="menu">Ảnh Danh Mục</label>
+                    <input type="file" name="file" class="form-control" id="upload">
+                    <div id="image_show" style="padding-top: 10px;">
+                        <a href="{{$menu->thumb}}" target="_blank">
+                            <img src="{{$menu->thumb}}" width="100px">
+                        </a>
+                    </div>
+                    <input type="hidden" name="thumb" value="{{$menu->thumb}}" id="thumb">
+                </div>
+
                 <fieldset class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">Kích Hoạt</legend>
                     <div class="col-sm-10 d-flex">
