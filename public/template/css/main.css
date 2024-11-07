@@ -604,6 +604,11 @@
   color: var(--white-color);
 }
 
+.main-menu-m > li.active-menu:hover
+{
+    background-color: rgba(0,0,0,0.5);
+}
+
 
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -616,7 +621,7 @@
   display: flex;
   align-items: center;
   height: 70px;
-  background-color: #fff;
+  background-color: rgba(0,0,0,1);
   padding: 15px;
   display: none;
 
@@ -695,7 +700,7 @@
 .main-menu-m {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #717fe0;
+  background-color: rgba(0,0,0,0.9);
 }
 
 .main-menu-m > li > a {
@@ -2821,7 +2826,7 @@ input.num-product::-webkit-inner-spin-button {
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #6774d5;
+  background-color: rgba(0,0,0,0.9);
   left: 0;
   bottom: -2px;
 }
@@ -2931,30 +2936,30 @@ input.num-product::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.how-itemcart1::after {
-  content: '\e870';
-  font-family: Linearicons-Free;
-  font-size: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.5);
-  color: #fff;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  opacity: 0;
-}
+/*.how-itemcart1::after {*/
+/*  content: '\e870';*/
+/*  font-family: Linearicons-Free;*/
+/*  font-size: 16px;*/
+/*  display: -webkit-box;*/
+/*  display: -webkit-flex;*/
+/*  display: -moz-box;*/
+/*  display: -ms-flexbox;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  position: absolute;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  background-color: rgba(0,0,0,0.5);*/
+/*  color: #fff;*/
+/*  transition: all 0.3s;*/
+/*  -webkit-transition: all 0.3s;*/
+/*  -o-transition: all 0.3s;*/
+/*  -moz-transition: all 0.3s;*/
+/*  opacity: 0;*/
+/*}*/
 
 .how-itemcart1:hover:after {
   opacity: 1;
@@ -3057,7 +3062,7 @@ input.num-product::-webkit-inner-spin-button {
 .hov-btn2:hover {
   border-color: #fff;
   background-color: #fff;
-  color: #717fe0;
+  color: var(--text-color);
 }
 
 /*---------------------------------------------*/

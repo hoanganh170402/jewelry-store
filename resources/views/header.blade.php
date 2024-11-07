@@ -68,7 +68,7 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="index.html"><img src="/template/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            <a href="/"><img src="/template/images/icons/logo-01.png" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->
@@ -77,7 +77,7 @@
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{ $productQuantity  }}">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
@@ -123,16 +123,16 @@
 {{--        </ul>--}}
 
         <ul class="main-menu-m">
-            <li class="active-menu"><a href="/">Home</a></li>
+            <li class="active-menu"><a class="ds-block" href="/">HOME</a></li>
 
             {!! $menusHtml !!}
 
-            <li>
-                <a href="about.html">About</a>
+            <li class="active-menu">
+                <a class="ds-block" href="about.html">ABOUT US</a>
             </li>
 
-            <li>
-                <a href="contact.html">Contact</a>
+            <li class="active-menu">
+                <a class="ds-block" href="contact.html">CONTACT</a>
             </li>
         </ul>
     </div>

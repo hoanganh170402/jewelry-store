@@ -31,3 +31,13 @@
 .list-style-none{
     list-style: none;
 }
+
+.background-color-text
+{
+    background-color: var(--text-color);
+}
+
+.ds-block
+{
+    display: block;
+}
