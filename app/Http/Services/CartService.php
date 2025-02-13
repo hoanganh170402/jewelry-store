@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Mail\OrderShipped;
 use Illuminate\Support\Facades\Mail;
@@ -78,11 +79,13 @@ class CartService
         try {
             DB::beginTransaction();
 
+            // Lấy giỏ hàng từ session
             $carts = Session::get('carts');
 
             if (is_null($carts))
                 return false;
 
+            // Tạo khách hàng mới
             $customer = Customer::create([
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
@@ -91,14 +94,35 @@ class CartService
                 'content' => $request->input('content')
             ]);
 
+            // Lưu thông tin sản phẩm vào giỏ hàng
             $this->infoProductCart($carts, $customer->id);
 
             DB::commit();
             Session::flash('success', 'Đặt Hàng Thành Công');
 
-            #Queue
-//            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
-            Mail::to($request->user())->send(new OrderShipped());
+            // Lấy thông tin sản phẩm từ model Cart
+            $cartItems = Cart::with('product') // Giả sử có quan hệ với model Product
+            ->where('customer_id', $customer->id)
+                ->whereIn('product_id', array_keys($carts))
+                ->get();
+
+            // Tính tổng giá
+            $totalPrice = 0;
+            $cartDetails = $cartItems->map(function ($item) use (&$totalPrice) {
+                $price = $item->product->price; // Lấy giá sản phẩm
+                $pty = $item->pty; // Số lượng sản phẩm
+                $totalPrice += $price * $pty; // Cộng dồn tổng giá
+
+                return [
+                    'product' => $item->product,
+                    'pty' => $pty,
+                    'price' => $price,
+                ];
+            });
+
+            // Gửi email với thông tin đơn hàng
+            Mail::to($customer->email)->send(new OrderShipped($cartDetails, $totalPrice));
+
             Session::forget('carts');
         } catch (\Exception $err) {
             DB::rollBack();
