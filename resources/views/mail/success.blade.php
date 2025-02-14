@@ -11,7 +11,7 @@
         img { -ms-interpolation-mode: bicubic; }
         img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
         table { border-collapse: collapse !important; }
-        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #eeeeee; }
+        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #f4f4f4; font-family: Arial, sans-serif; }
         a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
@@ -25,63 +25,104 @@
             .mobile-center { text-align: center !important; }
         }
         div[style*="margin: 16px 0;"] { margin: 0 !important; }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background-color: #27ae60;
+            padding: 35px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .email-body {
+            padding: 35px;
+            text-align: center;
+        }
+        .email-body img {
+            width: 125px;
+            height: 120px;
+        }
+        .email-body h2 {
+            color: #333333;
+            font-size: 24px;
+        }
+        .email-body p {
+            color: #777777;
+            font-size: 16px;
+        }
+        .email-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        .email-table th, .email-table td {
+            padding: 10px;
+            border: 1px solid #eeeeee;
+            text-align: left;
+        }
+        .email-table th {
+            background-color: #eeeeee;
+            font-weight: bold;
+        }
+        .email-footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            background-color: #eeeeee;
+        }
+        .email-footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td align="center" bgcolor="#eeeeee">
-            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
-                <tr>
-                    <td align="center" bgcolor="#27ae60" style="padding: 35px; font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; color: #ffffff;">
-                        TDAN SHOP
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#ffffff" style="padding: 35px;">
-                        <img src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png" width="125" height="120" /><br>
-                        <h2 style="color: #333333;">ĐẶT HÀNG THÀNH CÔNG!</h2>
-                        <p style="color: #777777;">Cảm ơn bạn đã đặt hàng tại TDAN SHOP.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#ffffff" style="padding: 20px;">
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+        <td align="center" bgcolor="#f4f4f4">
+            <div class="email-container">
+                <div class="email-header">
+                    TDAN SHOP
+                </div>
+                <div class="email-body">
+                    <img src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png" alt="Success Icon" /><br>
+                    <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
+                    <p>Cảm ơn bạn đã đặt hàng tại TDAN SHOP.</p>
+                    <table class="email-table">
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                        @foreach($cart as $item)
                             <tr>
-                                <td align="left" bgcolor="#eeeeee" style="padding: 10px; font-weight: bold;">Sản phẩm</td>
-                                <td align="left" bgcolor="#eeeeee" style="padding: 10px; font-weight: bold;">Số lượng</td>
-                                <td align="left" bgcolor="#eeeeee" style="padding: 10px; font-weight: bold;">Giá</td>
-                                <td align="left" bgcolor="#eeeeee" style="padding: 10px; font-weight: bold;">Thành tiền</td>
+                                <td>{{ $item['product']->name }}</td>
+                                <td>{{ $item['pty'] }}</td>
+                                <td>{{ number_format($item['price'], 0, ',', '.') }} VNĐ</td>
+                                <td>{{ number_format($item['price'] * $item['pty'], 0, ',', '.') }} VNĐ</td>
                             </tr>
-                            @foreach($cart as $item)
-                                <tr>
-                                    <td align="left" style="padding: 10px;">{{ $item['product']->name }}</td>
-                                    <td align="left" style="padding: 10px;">{{ $item['pty'] }}</td>
-                                    <td align="left" style="padding: 10px;">{{ number_format($item['price'], 0, ',', '.') }} VNĐ</td>
-                                    <td align="left" style="padding: 10px;">{{ number_format($item['price'] * $item['pty'], 0, ',', '.') }} VNĐ</td>
-                                </tr>
-                            @endforeach
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#ffffff" style="padding: 20px; font-size: 20px; font-weight: bold;">
+                        @endforeach
+                    </table>
+                    <p style="font-size: 20px; font-weight: bold; margin-top: 20px;">
                         Tổng giá: {{ number_format($totalPrice, 0, ',', '.') }} VNĐ
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#ffffff" style="padding: 20px;">
-                        <p>Bạn có thắc mắc? Liên hệ chúng tôi <a href="https://www.instagram.com/x.x.h.a_/" style="color: #3498db;">tại đây</a>.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" bgcolor="#eeeeee" style="padding: 20px; font-size: 12px; color: #777;">
-                        <p>Chính sách bảo mật | Điều khoản TDAN Shop</p>
-                        <p>Đây là email tự động. Vui lòng không trả lời email này.</p>
-                        <p>Tầng 17 Saigon Centre 2, 67 Đường Lê Lợi, Bến Nghé, Quận 1, Hồ Chí Minh 700000, Vietnam</p>
-                    </td>
-                </tr>
-            </table>
+                    </p>
+                    <p>Bạn có thắc mắc? Liên hệ chúng tôi <a href="https://www.instagram.com/x.x.h.a_/">tại đây</a>.</p>
+                </div>
+                <div class="email-footer">
+                    <p>Chính sách bảo mật | Điều khoản TDAN Shop</p>
+                    <p>Đây là email tự động. Vui lòng không trả lời email này.</p>
+                    <p>Tầng 17 Saigon Centre 2, 67 Đường Lê Lợi, Bến Nghé, Quận 1, Hồ Chí Minh 700000, Vietnam</p>
+                </div>
+            </div>
         </td>
     </tr>
 </table>
